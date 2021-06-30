@@ -10,7 +10,96 @@
 </head>
 <body>
     <div class="container">
-     <h1>d</h1>
+     <div class="weather-app">
+      <h1> Chill Weather App!</h1>
+      <form class="search-form" id="search-form">
+        <div class="row">
+          <div class="col-6">
+            <input
+              type="search"
+              placeholder="Enter your city"
+              class="form-control"
+              id="city-input"
+            />
+          </div>
+          <div class="col-3">
+            <input
+              type="submit"
+              value="Search"
+              class="form-control btn btn-info"
+              id="search-button"
+              
+            />
+          </div>
+          <div class="col-3">
+              <button 
+              type="button"
+              class="btn btn-info w-100" 
+              id="current-button">Current</button>
+          </div>
+
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-4">
+          <ul>
+            <li class="city" id="city-name"> </li>
+            <li class="current-date"></li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <ul>
+            <li><img src="Images/sun.png" alt="sun-icon" class="sun-icon" /></li>
+            <li class="weather-discrition"id="weather-discrition">Sun</li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <ul>
+            <li> <span class="temperature" id="temperature"></span> <span class="units">º <a href="#" id=celsius>C</a>  | <a href="#" id=fahrenheit>F</a></span> </li>
+            <li>Wind: <span id="wind"></span> km/h</li>
+            <li>Humidity: <span id="humidity"></span>%</li>
+          </ul>
+        </div>
+        <div class="week-day">
+          <div class="row">
+            <div class="col Monday">
+              <ul>
+                <li >Monday</li>
+                <li><img src="Images/rain.png" alt="rain"></li>
+                <li>18º | 25º</li>
+              </ul>
+            </div>
+            <div class="col Tuesday">
+              <ul>
+                <li >Tuesday</li>
+                <li><img src="Images/rain.png" alt="rain"></li>
+                <li>18º | 25º</li>
+              </ul>
+            </div>
+            <div class="col Wednesday">
+              <ul>
+                <li >Wednesday</li>
+                <li><img src="Images/rain.png" alt="rain"></li>
+                <li>18º | 25º</li>
+              </ul>
+            </div>
+            <div class="col Thursday ">
+              <ul>
+                <li >Thursday</li>
+                <li><img src="Images/rain.png" alt="rain"></li>
+                <li>18º | 25º</li>
+              </ul>
+            </div>
+            <div class="col Friday">
+              <ul>
+                <li >Friday</li>
+                <li><img src="Images/rain.png" alt="rain"></li>
+                <li>18º | 25º</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 		 
 
      <small> <a href="https://github.com/CarvalhoFilipa/vanilla-weather-app" target="blank">Open-source code</a>, by Filipa Carvalho</small>
