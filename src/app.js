@@ -23,15 +23,16 @@ function formatDate(timestamp) {
 function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   console.log(temperature);
+  
   document.querySelector("#temperature").innerHTML = temperature;
   document.querySelector("#city-name").innerHTML = response.data.name;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#weather-discrition").innerHTML =
     response.data.weather[0].main;
 document.querySelector(".current-date").innerHTML = formatDate(response.data.dt*1000)
+document.querySelector("#icon").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+document.querySelector("#icon").setAttribute("alt", response.data.weather[0].description)
 }
 function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=678a41d70f66a016981039bfa327c42a&units=metric`;
