@@ -21,18 +21,17 @@ function formatDate(timestamp) {
   return `${day}, ${hours}:${minutes}`;
 }
 function showWeather(response) {
-  let temperature = Math.round(response.data.main.temp);
-  console.log(temperature);
-  
-  document.querySelector("#temperature").innerHTML = temperature;
+  celsiusTemperature = response.data.main.temp;
+  document.querySelector("#temperature").innerHTML = Math.round(celsiusTemperature);
   document.querySelector("#city-name").innerHTML = response.data.name;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
-  document.querySelector("#weather-discrition").innerHTML =
-    response.data.weather[0].main;
+  document.querySelector("#weather-discrition").innerHTML = response.data.weather[0].main;
 document.querySelector(".current-date").innerHTML = formatDate(response.data.dt*1000)
 document.querySelector("#icon").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
 document.querySelector("#icon").setAttribute("alt", response.data.weather[0].description)
+
+
 }
 function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=678a41d70f66a016981039bfa327c42a&units=metric`;
@@ -57,6 +56,19 @@ function retrievePosition(position) {
 
   axios.get(apiUrl).then(showWeather);
 }
+
+function displayFahrenheitTemperature(event){
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+    let fahrenheiTemperature =(celsiusTemperature * 9)/ 5 + 32;
+    temperatureElement.innerHTML = Math.round(fahrenheiTemperature)
+}
+
+
+
+//celsios - far
+let celsiusTemperature = null; 
+
 //Date (day, 00:00)
 //let now = new Date();
 //let currentDate = document.querySelector(".current-date");
@@ -65,10 +77,20 @@ function retrievePosition(position) {
 //Show city name
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
 //Current location
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
+
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 searchCity("Porto");
+
+
+
+
+
+
+
 
