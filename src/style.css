@@ -74,6 +74,9 @@ li {
 .Thursday {
   border-right: 2px solid #005792;
 }
+.weather-temperature {
+  float: right;
+}
 .weather-temperature .active {
   color: black;
   cursor: default;
