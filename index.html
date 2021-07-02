@@ -17,7 +17,7 @@
 <body>
     <div class="container">
        <div class="weather-app-wrapper">
-     <div class="weather-app">
+     <div class="weather-app back-color">
       <h1> Chill Weather App!</h1>
       <form class="search-form" id="search-form">
         <div class="row">
@@ -55,19 +55,21 @@
           </ul>
         </div>
         <div class="col-4">
-          <div class="clearfix">
+          
           <ul>
             <li><img src="" alt="sun-icon" class="sun-icon" id="icon" /></li>
             <li class="weather-discrition"id="weather-discrition">Sun</li>
           </ul>
-        </div>
+        
         </div>
         <div class="col-4">
+          <div class="weather-temperature">
           <ul>
-            <li> <span class="temperature" id="temperature"></span> <span class="units">º <a href="#" id=celsius-link>C</a>  | <a href="#" id=fahrenheit-link>F</a></span> </li>
+            <li> <span class="temperature" id="temperature"></span> <span class="units">º <a href="#" id=celsius-link class="active">C</a>  | <a href="#" id=fahrenheit-link>F</a></span> </li>
             <li>Wind: <span id="wind"></span> km/h</li>
             <li>Humidity: <span id="humidity"></span>%</li>
           </ul>
+        </div>
         </div>
         <div class="week-day">
           <div class="row">

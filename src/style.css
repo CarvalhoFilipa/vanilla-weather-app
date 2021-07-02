@@ -1,5 +1,7 @@
 body {
-
+  background: url(https://image.freepik.com/free-vector/blue-cloudy-daylight-background-weather-design_33099-512.jpg)
+    #faf1e6;
+  background-size: 100%;
   color: #0a1931;
   font-family: "Farro", sans-serif;
 }
@@ -21,17 +23,18 @@ li {
   margin-bottom: 20px;
 }
 .weather-app-wrapper {
-margin: 20px auto;
-  max-width: 600px;
+  margin: 50px auto;
+  max-width: 700px;
 }
 .weather-app {
- 
+  background-color: rgba(255, 255, 255, 0.6);
   border: 1px solid rgb(150, 142, 142);
-  border-radius: 20px;
+  border-radius: 5px;
   box-shadow: 5px 5px 5px grey;
-  
+
   padding: 25px;
 }
+
 .city {
   font-size: 50px;
   font-weight: 500;
@@ -70,4 +73,12 @@ margin: 20px auto;
 .Wednesday,
 .Thursday {
   border-right: 2px solid #005792;
+}
+.weather-temperature .active {
+  color: black;
+  cursor: default;
+  text-decoration: none;
+}
+.weather-temperature .active:hover {
+  text-decoration: none;
 }
