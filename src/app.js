@@ -1,6 +1,6 @@
 function formatDate(timestamp) {
-  let date= new Date(timestamp)
-    let hours = date.getHours();
+  let date = new Date(timestamp);
+  let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
   }
@@ -22,16 +22,27 @@ function formatDate(timestamp) {
 }
 function showWeather(response) {
   celsiusTemperature = response.data.main.temp;
-  document.querySelector("#temperature").innerHTML = Math.round(celsiusTemperature);
+  document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemperature);
   document.querySelector("#city-name").innerHTML = response.data.name;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
-  document.querySelector("#weather-discrition").innerHTML = response.data.weather[0].main;
-document.querySelector(".current-date").innerHTML = formatDate(response.data.dt*1000)
-document.querySelector("#icon").setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
-document.querySelector("#icon").setAttribute("alt", response.data.weather[0].description)
-
-
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  document.querySelector("#weather-discrition").innerHTML =
+    response.data.weather[0].main;
+  document.querySelector(".current-date").innerHTML = formatDate(
+    response.data.dt * 1000
+  );
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+  document
+    .querySelector("#icon")
+    .setAttribute("alt", response.data.weather[0].description);
 }
 function searchCity(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=678a41d70f66a016981039bfa327c42a&units=metric`;
@@ -57,17 +68,20 @@ function retrievePosition(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
-function displayFahrenheitTemperature(event){
-    event.preventDefault();
-    let temperatureElement = document.querySelector("#temperature");
-    let fahrenheiTemperature =(celsiusTemperature * 9)/ 5 + 32;
-    temperatureElement.innerHTML = Math.round(fahrenheiTemperature)
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-
-
 //celsios - far
-let celsiusTemperature = null; 
+let celsiusTemperature = null;
 
 //Date (day, 00:00)
 //let now = new Date();
@@ -81,16 +95,10 @@ form.addEventListener("submit", handleSubmit);
 let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", getCurrentLocation);
 
-
-
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature());
+
 searchCity("Porto");
-
-
-
-
-
-
-
-
